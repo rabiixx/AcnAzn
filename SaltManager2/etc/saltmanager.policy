@@ -1,0 +1,38 @@
+// Permisos main
+grant codeBase "file:${user.dir}/dist/main.jar" {
+    permission javax.security.auth.AuthPermission "createLoginContext.SALTMANAGER";
+    permission java.lang.RuntimePermission "writeFileDescriptor";
+    permission java.lang.RuntimePermission "readFileDescriptor";
+};
+
+// Permisos Genericos
+grant codeBase "file:${user.dir}/dist/saltmanager.jar" {
+    permission javax.security.auth.AuthPermission "doAsPrivileged";
+    permission java.util.PropertyPermission "user.dir", "read,write";
+};
+
+
+// Permisos Principal rabiixx2 kerberos ( Developer )
+grant codeBase "file:${user.dir}/dist/saltmanager.jar" 
+    Principal javax.security.auth.kerberos.KerberosPrincipal "rabiixx2@LABOPROGSEGURA.UNAVARRA.ES" {
+        permission java.io.FilePermission "${user.dir}/users/franky.salt", "read,write";
+};
+
+
+// Permisos Principal ciccone:ciccone2021 kerberos
+grant codeBase "file:${user.dir}/dist/saltmanager.jar" 
+    Principal javax.security.auth.kerberos.KerberosPrincipal "ciccone@LABOPROGSEGURA.UNAVARRA.ES" {
+        permission java.io.FilePermission "${user.dir}/users/ciccone.salt", "read,write";
+};
+
+// Permisos Principal franky:franky2021 kerberos
+grant codeBase "file:${user.dir}/dist/saltmanager.jar" 
+    Principal javax.security.auth.kerberos.KerberosPrincipal "franky@LABOPROGSEGURA.UNAVARRA.ES" {
+        permission java.io.FilePermission "${user.dir}/users/franky.salt", "read,write";
+};
+
+// Permisos Principal johnny:johnny2021 kerberos
+grant codeBase "file:${user.dir}/dist/saltmanager.jar" 
+    Principal javax.security.auth.kerberos.KerberosPrincipal "johnny@LABOPROGSEGURA.UNAVARRA.ES" {
+        permission java.io.FilePermission "${user.dir}/users/johnny.salt", "read,write";
+};
