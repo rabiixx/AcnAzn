@@ -1,0 +1,47 @@
+grant codeBase "file:${user.dir}/dist/main.jar" {
+    permission javax.security.auth.AuthPermission "createLoginContext.SALTMANAGER";
+    permission javax.security.auth.AuthPermission "doAsPrivileged";
+
+    permission java.lang.RuntimePermission "writeFileDescriptor";
+    permission java.lang.RuntimePermission "readFileDescriptor";
+};
+
+grant codeBase "file:${user.dir}/dist/saltmanager.jar" {
+    permission javax.security.auth.AuthPermission "doAsPrivileged";
+    permission java.util.PropertyPermission "user.dir", "read,write";
+};
+
+
+// Permisos Principal rabiixx2 kerberos
+grant codeBase "file:${user.dir}/dist/saltmanager.jar" 
+    Principal javax.security.auth.kerberos.KerberosPrincipal "rabiixx2@LABOPROGSEGURA.UNAVARRA.ES" {
+      
+        permission java.util.PropertyPermission "java.home", "read";
+        permission java.util.PropertyPermission "user.home", "read";
+        permission java.util.PropertyPermission "user.dir", "read";
+        permission java.io.FilePermission "${user.dir}/users/franky.salt", "read,write";
+
+
+    };
+
+grant codeBase "file:${user.dir}/dist/saltmanager.jar" 
+    Principal javax.security.auth.kerberos.KerberosPrincipal "rabiixx2@LABOPROGSEGURA.UNAVARRA.ES" {
+      
+        permission java.util.PropertyPermission "java.home", "read";
+        permission java.util.PropertyPermission "user.home", "read";
+        permission java.util.PropertyPermission "user.dir", "read";
+        permission java.io.FilePermission "${user.dir}/users/franky.salt", "read,write";
+
+
+    };
+
+grant codeBase "file:${user.dir}/dist/saltmanager.jar" 
+    Principal javax.security.auth.kerberos.KerberosPrincipal "rabiixx2@LABOPROGSEGURA.UNAVARRA.ES" {
+      
+        permission java.util.PropertyPermission "java.home", "read";
+        permission java.util.PropertyPermission "user.home", "read";
+        permission java.util.PropertyPermission "user.dir", "read";
+        permission java.io.FilePermission "${user.dir}/users/franky.salt", "read,write";
+
+
+    };

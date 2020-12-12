@@ -1,0 +1,6 @@
+#!/bin/bash
+
+java \
+-Djava.security.manager -Djava.security.policy=./etc/saltmanager.policy \
+-Djava.security.auth.login.config=./etc/login.conf \
+-cp ./dist/main.jar:./dist/saltmanager.jar main.SaltManager

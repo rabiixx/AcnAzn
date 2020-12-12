@@ -1,0 +1,56 @@
+// Todas las cláusulas siguientes son necesarias en la aplicación multicomponente.
+//
+// Téngase en cuenta que algunas requieren permisos no se incluyen,
+// porque no son necesarios, en la aplicación monocomponente.
+//
+// En la definición de las cláusulas se debe cumplir con el principio
+// de minimización de privilegios concedidos a cada componente y sujeto autenticado.
+
+// Permisos para componente de arranque
+grant codeBase "file:${user.dir}/dist/main.jar" {
+    permission javax.security.auth.AuthPermission "createLoginContext.BYTECOUNTER2";
+    permission java.lang.RuntimePermission "readFileDescriptor";
+    permission java.lang.RuntimePermission "writeFileDescriptor";
+
+};
+
+// Permisos para componente de servicios
+grant codeBase "file:${user.dir}/dist/counter.jar" {
+    permission javax.security.auth.AuthPermission "doAsPrivileged";
+    permission java.util.PropertyPermission "user.dir", "read";
+};
+
+
+  
+grant codeBase "file:${user.dir}/dist/counter.jar" 
+    Principal javax.security.auth.kerberos.KerberosPrincipal "rabiixx2@LABOPROGSEGURA.UNAVARRA.ES" {
+      
+        //permission java.util.PropertyPermission "java.home", "read";
+        //permission java.util.PropertyPermission "user.home", "read";
+        //permission java.util.PropertyPermission "user.dir", "read";
+        //permission java.io.FilePermission "${user.dir}/users/franky.salt", "read,write";
+        permission java.io.FilePermission "${user.dir}/users/franky/*", "read";
+    };
+
+
+// Permisos para principal ciccone
+/*grant codeBase "file:${user.dir}/dist/counter.jar"
+      principal javax.security.auth.x500.X500Principal
+                " DATOS DE IDENTIFICACIÓN DE PRINCIPAL X500 ciccone " {
+
+};*/
+
+// Permisos para principal franky
+/*grant codeBase "file:${user.dir}/dist/counter.jar"
+      principal javax.security.auth.x500.X500Principal
+                " DATOS DE IDENTIFICACIÓN DE PRINCIPAL X500 franky " {
+
+};*/
+
+// Permisos para principal johnny
+/*grant codeBase "file:${user.dir}/dist/counter.jar"
+      principal javax.security.auth.x500.X500Principal
+                " DATOS DE IDENTIFICACIÓN DE PRINCIPAL X500 johnny " {
+
+};
+*/

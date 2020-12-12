@@ -1,0 +1,10 @@
+#!/bin/bash
+
+source ~/.bashrc
+
+javac -d . ../src/saltmanager/*.java
+sudo jar -cvf saltmanager.jar ./saltmanager/*.class
+
+javac -d . -cp saltmanager.jar ../src/main/*.java
+sudo jar -cvf main.jar ./main/*
+

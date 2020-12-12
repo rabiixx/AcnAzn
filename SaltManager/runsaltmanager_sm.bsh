@@ -1,0 +1,5 @@
+java -Djava.security.manager -Djava.security.policy=./etc/saltmanager.policy \
+-Djava.security.auth.login.config=./etc/login.conf \
+-Djava.security.krb5.realm=LABOPROGSEGURA.UNAVARRA.ES \
+-Djava.security.krb5.kdc=127.0.0.1 \
+-cp ./dist/main.jar:./dist/saltmanager.jar main.SaltManager

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+javac -Xlint:unchecked -Xlint:deprecation -d . ../src/bytecounter/*.java
+jar -cvf counter.jar ./bytecounter/*.class
+javac -Xlint:unchecked -Xlint:deprecation -d . -cp counter.jar ../src/main/*.java
+jar -cvf main.jar ./main/*.class
